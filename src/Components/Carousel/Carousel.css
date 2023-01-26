@@ -1,0 +1,38 @@
+.scene {
+  margin: 10em auto;
+  border: solid 1px red;
+  width: 20%;
+  height: 15vh;
+}
+.carousel {
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg);
+}
+img {
+  width: 100%;
+}
+figure {
+  display: block;
+  position: absolute;
+  transform-origin: 50% 50% 0;
+}
+.vehicles-img {
+  transform: translateX(150px);
+}
+.person-img {
+  transform: translateX(290px) translateZ(-100px);
+}
+.movies-img {
+  transform: rotateZ(90deg) translateY(-290px) translateZ(-200px);
+}
+.planet-img {
+  transform: translateX(150px) translateZ(-300px);
+}
+.spicies-img {
+  transform: translateZ(-200px);
+}
+.starship-img {
+  transform: rotateZ(90deg) translateZ(-100px);
+}
