@@ -9,12 +9,14 @@ import { Container } from "./Components/Container/container";
 import { Details } from "./Components/Details/details";
 import { Subtitle } from "./Components/Subtitle/subtitle";
 import { ResultList } from "./Components/resultList/resultList";
+import { FlexContainer } from "./Components/FlexContainer/flexContainer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BannerImg />
     <CarouselMenu />
+    <FlexContainer>
     <Container>
       <Subtitle title="Characters"/>
       <ResultList />
@@ -23,5 +25,6 @@ root.render(
     <Subtitle title="Details" />
       <Details />
     </Container>
+    </FlexContainer>
   </React.StrictMode>
 );
