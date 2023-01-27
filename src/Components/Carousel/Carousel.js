@@ -8,8 +8,13 @@ import starship from '../../img/starship.png';
 
 function Carousel() {
   return (
+    
     <div className="scene">
       <div className="carousel">
+        <div>
+          <button className="left-carousel-btn">&#5129;
+</button>
+        </div>
         <figure className="vehicles-img">
           <img src={vehicle} alt="" />
         </figure>
@@ -28,8 +33,13 @@ function Carousel() {
         <figure className='starship-img'>
           <img src={starship} alt="" />
         </figure>
+        <div>
+          <button className="right-carousel-btn">&#5129;
+</button>
+        </div>
       </div>
     </div>
+
   );
 }
 

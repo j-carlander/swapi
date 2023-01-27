@@ -1,14 +1,14 @@
 .scene {
   margin: 10em auto;
   border: solid 1px red;
-  width: 20%;
-  height: 15vh;
+  width: 8%;
+  height: 12vh;
 }
 .carousel {
   display: flex;
   flex-direction: column;
   transform-style: preserve-3d;
-  transform: rotateX(-20deg);
+  transform: rotateX(-20deg) translateX(-147px) translateY(-10px);
 }
 img {
   width: 100%;
@@ -35,4 +35,22 @@ figure {
 }
 .starship-img {
   transform: rotateZ(90deg) translateZ(-100px);
+}
+.left-carousel-btn,
+.right-carousel-btn {
+  font-size: 4rem;
+  color: #bafdffd7;
+  color: #89b9bbd7;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+.left-carousel-btn {
+  transform: rotateZ(180deg) translateY(-98px);
+}
+.right-carousel-btn {
+  transform: translateX(440px) translateY(-2px);
+}
+.left-carousel-btn:hover,
+.right-carousel-btn:hover {
+  color: #bafdffd7;
 }
