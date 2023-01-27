@@ -5,13 +5,14 @@ import "./index.css";
 import BannerImg from "./Components/BannerImg/BannerImg";
 import { Container } from "./Components/Container/container";
 import { Details } from "./Components/Details/details";
+import { Subtitle } from "./Components/Subtitle/subtitle";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BannerImg />
     <Container >
-      <h2>Hej</h2>
+    <Subtitle title="Details" />
       <Details />
     </Container>
   </React.StrictMode>
