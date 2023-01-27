@@ -1,5 +1,12 @@
 .banner-img {
   background-color: black;
+  width: 100%;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 1920px) {
+  .banner-img img {
+    width: 70%;
+  }
 }
