@@ -2,14 +2,26 @@ import React from "react";
 import { ResultItem } from "../ResultItem/resultItem";
 import "./resultList.css";
 
-export function ResultList () {
-    return (
-        <div>
-            <ul>
-                <ResultItem name="Luke Skywalker"/>
-            </ul>
-            <button className="left-carousel-btn">&#5129;</button>
-            <button className="right-carousel-btn">&#5129;</button>
-        </div>
-    )
+export function ResultList(props) {
+  if (!props.result) return <div>Loading...</div>;
+
+  let resultList = props.result[3][1];
+  resultList.map((item) => console.log(item.name ? item.name : item.title));
+  console.log(props.result[3][1]);
+  return (
+    <div>
+      <ul>
+        {resultList.map((item) => {
+          return (
+            <ResultItem
+              key={item.name ? item.name : item.title} //since films-category dont have name but title
+              name={item.name ? item.name : item.title}
+            />
+          );
+        })}
+      </ul>
+      <button className="left-carousel-btn">&#5129;</button>
+      <button className="right-carousel-btn">&#5129;</button>
+    </div>
+  );
 }

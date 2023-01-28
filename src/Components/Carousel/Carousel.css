@@ -10,6 +10,7 @@
 .scene {
   border: 1px solid red;
   display: flex;
+  align-items: baseline;
 }
 img {
   width: 100%;
