@@ -1,5 +1,5 @@
 import "./BannerImg.css";
-import BackgroundImg from "./banner-img.png"
+import BackgroundImg from "../../img/swapi-background.png"
 
 function BannerImg() {
   return (
