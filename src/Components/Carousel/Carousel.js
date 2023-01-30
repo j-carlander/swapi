@@ -6,9 +6,9 @@ import { CarouselItem } from "../CarouselItem/carouselItem";
 function Carousel({ categories, onClick }) {
   return (
     <div className="carousel">
-      <div>
-        <button className="carousel-left-carousel-btn">&#5129;</button>
-      </div>
+      {/* <div>
+        <button className="left-carousel-btn">&#5129;</button>
+      </div> */}
       <div className="scene">
         {categories.map((category) => {
           return (
@@ -22,9 +22,9 @@ function Carousel({ categories, onClick }) {
           );
         })}
       </div>
-      <div>
-        <button className="carousel-right-carousel-btn">&#5129;</button>
-      </div>
+      {/* <div>
+        <button className="right-carousel-btn">&#5129;</button>
+      </div> */}
     </div>
   );
 }

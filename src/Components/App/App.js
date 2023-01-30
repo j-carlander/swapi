@@ -38,6 +38,7 @@ function App() {
   const [chosenCategory, setCategory] = useState(categories[0].name);
   const [categoryUrl, setUrl] = useState(categories[0].url);
   const [categoryResultList, setResultList] = useState();
+  const [details, setDetails] = useState();
 
   function onCategoryClick(e) {
     console.log(e.target.closest("[data-url]"));
@@ -61,7 +62,7 @@ function App() {
         </Container>
         <Container>
           <Subtitle title="Details" />
-          <Details />
+          <Details category={chosenCategory} details={details} />
         </Container>
       </FlexContainer>
     </div>

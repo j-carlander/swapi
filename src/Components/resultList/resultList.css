@@ -6,3 +6,24 @@
   align-items: center;
   gap: 0.5em;
 }
+
+.flex-space-around {
+  display: flex;
+  justify-content: space-around;
+}
+/* .left-resultList-btn {
+  scale: -1;
+} */
+.left-resultList-btn,
+.right-resultList-btn {
+  font-size: 4rem;
+  color: #bafdffd7;
+  color: #89b9bbd7;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.left-resultList-btn:hover,
+.right-resultList-btn:hover {
+  color: #bafdffd7;
+}
