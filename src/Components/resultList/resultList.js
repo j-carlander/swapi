@@ -10,10 +10,6 @@ export function ResultList(props) {
 
   let count = Math.ceil(props.result[0][1] / 10);
 
-  function handleChangePage(e) {
-    props.onPageBtn(e);
-  }
-
   let resultList = props.result[3][1];
   resultList.map((item) => console.log(item.name ? item.name : item.title));
   console.log(props.result[3][1]);
@@ -25,6 +21,8 @@ export function ResultList(props) {
             <ResultItem
               key={item.name ? item.name : item.title} //since films-category dont have name but title
               name={item.name ? item.name : item.title}
+              url={item.url}
+              onShowDetailsBtn={props.onShowDetailsBtn}
             />
           );
         })}
@@ -36,7 +34,7 @@ export function ResultList(props) {
           }
           data-value="prev"
           data-url={prevPage}
-          onClick={handleChangePage}>
+          onClick={props.onChangePageBtn}>
           &#171;
         </button>
         <p>
@@ -48,7 +46,7 @@ export function ResultList(props) {
           }
           data-value="next"
           data-url={nextPage}
-          onClick={handleChangePage}>
+          onClick={props.onChangePageBtn}>
           &#187;
         </button>
       </div>

@@ -39,7 +39,9 @@ function App() {
   const [categoryUrl, setUrl] = useState(categories[0].url);
   const [categoryResultList, setResultList] = useState();
   const [pageNumber, setPageNumber] = useState(1);
-  const [detailsUrl, setDetailsUrl] = useState();
+  const [detailsUrl, setDetailsUrl] = useState(
+    "https://swapi.dev/api/people/1"
+  );
   const [details, setDetails] = useState();
 
   function onCategoryClick(e) {
@@ -50,7 +52,7 @@ function App() {
     setPageNumber(1);
   }
 
-  function onResultPageBtnClick(e) {
+  function onChangePage(e) {
     let el = e.target;
     if (el.dataset.value === "next") setPageNumber(pageNumber + 1);
     if (el.dataset.value === "prev") setPageNumber(pageNumber - 1);
@@ -58,9 +60,17 @@ function App() {
     setUrl(el.dataset.url);
   }
 
+  function onShowDetails(e) {
+    setDetailsUrl(e.target.dataset.url);
+  }
+
   useEffect(() => {
     fetchAPI(categoryUrl, setResultList).catch(console.error);
   }, [categoryUrl]);
+
+  useEffect(() => {
+    fetchAPI(detailsUrl, setDetails).catch(console.error);
+  }, [detailsUrl]);
 
   return (
     <div>
@@ -71,7 +81,8 @@ function App() {
           <Subtitle title={chosenCategory} />
           <ResultList
             result={categoryResultList}
-            onPageBtn={onResultPageBtnClick}
+            onChangePageBtn={onChangePage}
+            onShowDetailsBtn={onShowDetails}
             pageNumber={pageNumber}
           />
         </Container>
