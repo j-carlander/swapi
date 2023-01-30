@@ -19,8 +19,8 @@ img {
 .starship-img {
   transform: rotateZ(90deg);
 }
-.carousel-left-carousel-btn {
-  transform: rotateZ(180deg);
+.left-carousel-btn {
+  scale: -1;
 }
 .carousel-left-carousel-btn,
 .carousel-right-carousel-btn {

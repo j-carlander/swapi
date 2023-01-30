@@ -10,7 +10,7 @@ export function ResultList(props) {
   console.log(props.result[3][1]);
   return (
     <div>
-      <ul>
+      <ul className="result-list">
         {resultList.map((item) => {
           return (
             <ResultItem

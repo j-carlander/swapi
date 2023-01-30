@@ -35,8 +35,8 @@ const categories = [
 ];
 
 function App() {
-  const [chosenCategory, setCategory] = useState("People");
-  const [categoryUrl, setUrl] = useState("https://swapi.dev/api/people/");
+  const [chosenCategory, setCategory] = useState(categories[0].name);
+  const [categoryUrl, setUrl] = useState(categories[0].url);
   const [categoryResultList, setResultList] = useState();
 
   function onCategoryClick(e) {
@@ -45,9 +45,11 @@ function App() {
     setUrl(el.dataset.url);
     setCategory(el.dataset.name);
   }
+
   useEffect(() => {
     fetchAPI(categoryUrl, setResultList).catch(console.error);
   }, [categoryUrl]);
+
   return (
     <div>
       <BannerImg />

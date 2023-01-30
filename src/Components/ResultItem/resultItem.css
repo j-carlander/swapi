@@ -2,3 +2,8 @@ li {
   margin-left: 0em;
   list-style: none;
 }
+
+.result-btn {
+  width: 20ch;
+  cursor: pointer;
+}
