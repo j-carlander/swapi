@@ -22,8 +22,8 @@ img {
 .left-carousel-btn {
   scale: -1;
 }
-.left-carousel-btn,
-.right-carousel-btn {
+.carousel-left-carousel-btn,
+.carousel-right-carousel-btn {
   font-size: 4rem;
   color: #bafdffd7;
   color: #89b9bbd7;
@@ -31,7 +31,7 @@ img {
   border: none;
 }
 
-.left-carousel-btn:hover,
-.right-carousel-btn:hover {
+.carousel-left-carousel-btn:hover,
+.carousel-right-carousel-btn:hover {
   color: #bafdffd7;
 }

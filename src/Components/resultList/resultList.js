@@ -20,8 +20,9 @@ export function ResultList(props) {
           );
         })}
       </div>
-      <button className="left-carousel-btn">&#5129;</button>
-      <button className="right-carousel-btn">&#5129;</button>
+
+      <button className="resultList-left-carousel-btn">&#5129;</button>
+      <button className="resultList-right-carousel-btn">&#5129;</button>
     </div>
   );
 }
