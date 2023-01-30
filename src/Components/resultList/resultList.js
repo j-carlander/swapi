@@ -10,7 +10,7 @@ export function ResultList(props) {
   console.log(props.result[3][1]);
   return (
     <div>
-      <ul className="result-list">
+      <div className="flex-column">
         {resultList.map((item) => {
           return (
             <ResultItem
@@ -19,7 +19,7 @@ export function ResultList(props) {
             />
           );
         })}
-      </ul>
+      </div>
       <button className="left-carousel-btn">&#5129;</button>
       <button className="right-carousel-btn">&#5129;</button>
     </div>
