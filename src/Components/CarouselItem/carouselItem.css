@@ -1,3 +1,6 @@
 figcaption {
-    color: white;
+  color: white;
+}
+figure {
+  cursor: pointer;
 }
