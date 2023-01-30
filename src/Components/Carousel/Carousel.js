@@ -7,7 +7,7 @@ function Carousel({ categories, onClick }) {
   return (
     <div className="carousel">
       <div>
-        <button className="left-carousel-btn">&#5129;</button>
+        <button className="carousel-left-carousel-btn">&#5129;</button>
       </div>
       <div className="scene">
         {categories.map((category) => {
@@ -23,7 +23,7 @@ function Carousel({ categories, onClick }) {
         })}
       </div>
       <div>
-        <button className="right-carousel-btn">&#5129;</button>
+        <button className="carousel-right-carousel-btn">&#5129;</button>
       </div>
     </div>
   );

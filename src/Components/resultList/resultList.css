@@ -1,0 +1,16 @@
+.resultList-left-carousel-btn {
+  transform: rotateZ(180deg);
+}
+.resultList-left-carousel-btn,
+.resultList-right-carousel-btn {
+  font-size: 4rem;
+  color: #bafdffd7;
+  color: #89b9bbd7;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.resultList-left-carousel-btn:hover,
+.resultList-right-carousel-btn:hover {
+  color: #bafdffd7;
+}
