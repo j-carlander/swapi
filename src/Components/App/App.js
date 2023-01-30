@@ -47,6 +47,11 @@ function App() {
     setCategory(el.dataset.name);
   }
 
+  function onResultPageBtnClick(e) {
+    let el = e.target;
+    setUrl(el.dataset.url);
+  }
+
   useEffect(() => {
     fetchAPI(categoryUrl, setResultList).catch(console.error);
   }, [categoryUrl]);
@@ -58,7 +63,10 @@ function App() {
       <FlexContainer>
         <Container>
           <Subtitle title={chosenCategory} />
-          <ResultList result={categoryResultList} />
+          <ResultList
+            result={categoryResultList}
+            onPageBtn={onResultPageBtnClick}
+          />
         </Container>
         <Container>
           <Subtitle title="Details" />
