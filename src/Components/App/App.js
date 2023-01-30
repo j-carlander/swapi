@@ -38,6 +38,8 @@ function App() {
   const [chosenCategory, setCategory] = useState(categories[0].name);
   const [categoryUrl, setUrl] = useState(categories[0].url);
   const [categoryResultList, setResultList] = useState();
+  const [pageNumber, setPageNumber] = useState(1);
+  const [detailsUrl, setDetailsUrl] = useState();
   const [details, setDetails] = useState();
 
   function onCategoryClick(e) {
@@ -45,10 +47,14 @@ function App() {
     let el = e.target.closest("[data-url]");
     setUrl(el.dataset.url);
     setCategory(el.dataset.name);
+    setPageNumber(1);
   }
 
   function onResultPageBtnClick(e) {
     let el = e.target;
+    if (el.dataset.value === "next") setPageNumber(pageNumber + 1);
+    if (el.dataset.value === "prev") setPageNumber(pageNumber - 1);
+
     setUrl(el.dataset.url);
   }
 
@@ -66,6 +72,7 @@ function App() {
           <ResultList
             result={categoryResultList}
             onPageBtn={onResultPageBtnClick}
+            pageNumber={pageNumber}
           />
         </Container>
         <Container>

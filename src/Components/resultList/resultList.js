@@ -9,20 +9,8 @@ export function ResultList(props) {
   let prevPage = props.result[2][1];
 
   let count = Math.ceil(props.result[0][1] / 10);
-  console.log(count);
-  let pageNumber = 1;
-  console.log(props.result[1][1]);
 
   function handleChangePage(e) {
-    if (e.target.dataset.value == "next") {
-      if (pageNumber < count) {
-        pageNumber++;
-      } else if (pageNumber === count) {
-      }
-    }
-    if (e.target.dataset.value == "prev") {
-    }
-
     props.onPageBtn(e);
   }
 
@@ -43,17 +31,21 @@ export function ResultList(props) {
       </div>
       <div className="flex-space-around">
         <button
-          className="left-resultList-btn"
+          className={
+            prevPage ? "left-resultList-btn" : "left-resultList-btn disabled"
+          }
           data-value="prev"
           data-url={prevPage}
           onClick={handleChangePage}>
           &#171;
         </button>
         <p>
-          page: {pageNumber}/{count}
+          page: {props.pageNumber}/{count}
         </p>
         <button
-          className="right-resultList-btn"
+          className={
+            nextPage ? "right-resultList-btn" : "right-resultList-btn disabled"
+          }
           data-value="next"
           data-url={nextPage}
           onClick={handleChangePage}>
