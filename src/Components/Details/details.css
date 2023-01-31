@@ -4,11 +4,12 @@ th {
 
 .table-title {
     text-align: center;
+    border-bottom: 2px solid white;
 }
 
-/* th, td {
-    border: 1.5px solid black;
-} */
+table {
+    width: 100%;
+}
 
 tr:nth-child(even) {
     background-color: white;

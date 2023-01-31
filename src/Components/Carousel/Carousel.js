@@ -1,32 +1,54 @@
-import React from "react";
+import { func } from "prop-types";
+import React, { useRef } from "react";
 import "./Carousel.css";
 
 
 function Carousel({ categories, onCategorySlideBtn, img, name }) {
+  function handleSlide(e) {
+    let el = e.target;
+    let value = el.dataset.value;
+
+    if (value === "next") {
+    }
+    if (value === "prev") {
+    }
+
+    onCategorySlideBtn(value);
+  }
 
   return (
-    <div className="carousel">
-      <div>
-        <button 
+    <div className="flex-column">
+      <div className="carousel">
+        <button
           className="left-carousel-btn"
           data-url={categories.url}
           data-value="prev"
-          onClick={onCategorySlideBtn}
-          >&#5130;</button>
-      </div>
-      <div className="slide">
-        <figure>
-          <img src={img} alt="" />
-          <figcaption>{name}</figcaption>
-        </figure>
-      </div>
-      <div>
-        <button 
+          onClick={handleSlide}>
+          &#5130;
+        </button>
+
+        <div className="slide">
+          <figure>
+            <img src={img} alt="" />
+            {/* <figcaption>{name}</figcaption> */}
+          </figure>
+        </div>
+
+        <button
           className="right-carousel-btn"
           data-url={categories.url}
           data-value="next"
-          onClick={onCategorySlideBtn}
-          >&#5125;</button>
+          onClick={handleSlide}>
+          &#5125;
+        </button>
+      </div>
+      <div className="flex-row">
+        <p>Pep</p>
+        <p>pla</p>
+        <p>veh</p>
+        <p>fil</p>
+        <p>sta</p>
+        <p>spe</p>
       </div>
     </div>
   );

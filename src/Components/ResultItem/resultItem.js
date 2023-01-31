@@ -6,11 +6,9 @@ export function ResultItem(props) {
     console.log(props.details);
     props.onShowDetailsBtn(props.details);
   }
+
   return (
-    <button
-      className="result-btn"
-      onClick={handleClick}
-      data-url={props.url}>
+    <button className="result-btn" onClick={handleClick} data-url={props.url}>
       {props.name}
     </button>
   );
