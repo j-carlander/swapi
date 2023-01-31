@@ -35,7 +35,6 @@ const categories = [
 ];
 
 function App() {
-  
   const [currentSlide, setCurrentSlide] = useState(0);
   const [chosenCategory, setCategory] = useState(categories[currentSlide].name);
   const [categoryUrl, setUrl] = useState(categories[currentSlide].url);
@@ -60,32 +59,24 @@ function App() {
     let el = e.target;
     console.log(el.dataset.value);
     console.log(el.dataset);
-    console.log(`currentslide =` + currentSlide)
+    console.log(`currentslide =` + currentSlide);
 
-    if(el.dataset.value === "next") {
-      setCurrentSlide(currentSlide + 1);
-      if(currentSlide < 5) {
-        setImage(categories[currentSlide].img);
-        setName(categories[currentSlide].name);
-        setCategory(categories[currentSlide].name);
+    let nextSlideValue = currentSlide;
 
-        console.log(`if next = ${currentSlide}`);
-      }else {
-        setCurrentSlide(currentSlide - 5);
-      }
+    if (el.dataset.value === "next") {
+      nextSlideValue++;
+      if (nextSlideValue > 5) nextSlideValue = 0;
     }
-    if(el.dataset.value === "prev") {
-      if(currentSlide > 0) { 
-        setCurrentSlide(currentSlide - 1);
-        setImage(categories[currentSlide].img);
-        setName(categories[currentSlide].name);
-        setCategory(categories[currentSlide].name);
-
-        console.log(`if prev = ${currentSlide}`);
-      }else {
-        setCurrentSlide(currentSlide + 5);
-      }
+    if (el.dataset.value === "prev") {
+      nextSlideValue--;
+      if (nextSlideValue < 0) nextSlideValue = 5;
     }
+
+    setCurrentSlide(nextSlideValue);
+    setUrl(categories[currentSlide].url);
+    setImage(categories[currentSlide].img);
+    setCategory(categories[currentSlide].name);
+    setDetails();
   }
 
   function onChangePage(e) {
@@ -111,13 +102,13 @@ function App() {
   return (
     <div>
       <BannerImg />
-      <CarouselMenu 
+      <CarouselMenu
         categories={categories}
-        name={currentName}
+        name={chosenCategory}
         img={currentImage}
         // onClick={onCategoryClick}
         onCategorySlideBtn={onCategorySlide}
-        />
+      />
       <FlexContainer>
         <Container>
           <Subtitle title={chosenCategory} />
