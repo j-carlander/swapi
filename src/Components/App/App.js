@@ -35,12 +35,14 @@ const categories = [
 ];
 
 function App() {
-  const [chosenCategory, setCategory] = useState(categories[0].name);
-  const [categoryUrl, setUrl] = useState(categories[0].url);
+  
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [chosenCategory, setCategory] = useState(categories[currentSlide].name);
+  const [categoryUrl, setUrl] = useState(categories[currentSlide].url);
+  const [currentImage, setImage] = useState(categories[currentSlide].img);
+  const [currentName, setName] = useState(categories[currentSlide].name);
   const [categoryResultList, setResultList] = useState();
   const [pageNumber, setPageNumber] = useState(1);
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const [nextSlide, setNextSlide] = useState(2);
   // const [detailsUrl, setDetailsUrl] = useState(
   //   "https://swapi.dev/api/people/1"
   // );
@@ -56,29 +58,33 @@ function App() {
 
   function onCategorySlide(e) {
     let el = e.target;
-
     console.log(el.dataset.value);
     console.log(el.dataset);
     console.log(`currentslide =` + currentSlide)
-    console.log(`nextslide =` + nextSlide)
 
     if(el.dataset.value === "next") {
       setCurrentSlide(currentSlide + 1);
-      setNextSlide(nextSlide + 1);
-      setUrl(categories[currentSlide].url);
-      setCategory(categories[currentSlide].name);
-      setPageNumber(1);
-      console.log(`if next = ${currentSlide}`);
-      console.log(`if next = ${nextSlide}`);
+      if(currentSlide < 5) {
+        setImage(categories[currentSlide].img);
+        setName(categories[currentSlide].name);
+        setCategory(categories[currentSlide].name);
+
+        console.log(`if next = ${currentSlide}`);
+      }else {
+        setCurrentSlide(currentSlide - 5);
+      }
     }
     if(el.dataset.value === "prev") {
-      setCurrentSlide(currentSlide - 1);
-      setNextSlide(nextSlide - 1);
-      setUrl(categories[currentSlide].url);
-      setCategory(categories[currentSlide].name);
-      setPageNumber(1);
-      console.log(`if prev = ${currentSlide}`);
-      console.log(`if prev = ${nextSlide}`);
+      if(currentSlide > 0) { 
+        setCurrentSlide(currentSlide - 1);
+        setImage(categories[currentSlide].img);
+        setName(categories[currentSlide].name);
+        setCategory(categories[currentSlide].name);
+
+        console.log(`if prev = ${currentSlide}`);
+      }else {
+        setCurrentSlide(currentSlide + 5);
+      }
     }
   }
 
@@ -106,7 +112,9 @@ function App() {
     <div>
       <BannerImg />
       <CarouselMenu 
-        categories={categories} 
+        categories={categories}
+        name={currentName}
+        img={currentImage}
         // onClick={onCategoryClick}
         onCategorySlideBtn={onCategorySlide}
         />

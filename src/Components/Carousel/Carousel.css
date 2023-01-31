@@ -16,7 +16,6 @@
   width: 100%;
   max-width: 130px;
   transition: all 0.5s;
-  overflow: hidden;
 }
 .slide img {
   width: 200%;
@@ -25,12 +24,16 @@
 .left-carousel-btn,
 .right-carousel-btn {
   font-size: 4rem;
-  color: #bafdffd7;
+  color: #89b9bbd7;
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
   border: none;
 }
-.disabled {
-  pointer-events: none;
-  color: #89b9bbd7;
+
+.left-carousel-btn:hover,
+.right-carousel-btn:hover {
+  color: #bafdffd7;
+}
+figcaption {
+  color: white;
 }
