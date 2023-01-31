@@ -1,26 +1,36 @@
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  gap: 1em;
+  color: white;
+}
+
 .carousel {
   margin: auto auto;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  gap: 1em;
   max-width: 250px;
   height: 200px;
   position: relative;
 }
 .slide {
-  border: 1px solid green;
   display: flex;
   text-align: center;
-  width: 100%;
-  max-width: 130px;
+  min-width: 130px;
   transition: all 0.5s;
+  overflow: hidden;
 }
 .slide img {
   width: 200%;
   margin-left: -1.5em;
 }
+
 .left-carousel-btn,
 .right-carousel-btn {
   font-size: 4rem;
@@ -36,4 +46,43 @@
 }
 figcaption {
   color: white;
+}
+
+.slide-out-left {
+  animation: slideOutLeft 250ms forwards;
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-500px);
+  }
+}
+
+.slide-out-right {
+  animation: slideOutRight 250ms forwards;
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(500px);
+  }
+}
+
+.fade-figure {
+  animation: fadeIn 250ms ease-in 200ms forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

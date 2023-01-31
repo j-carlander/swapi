@@ -55,27 +55,21 @@ function App() {
   //   setPageNumber(1);
   // }
 
-  function onCategorySlide(e) {
-    let el = e.target;
-    console.log(el.dataset.value);
-    console.log(el.dataset);
-    console.log(`currentslide =` + currentSlide);
-
+  function onCategorySlide(value) {
     let nextSlideValue = currentSlide;
 
-    if (el.dataset.value === "next") {
+    if (value === "next") {
       nextSlideValue++;
       if (nextSlideValue > 5) nextSlideValue = 0;
     }
-    if (el.dataset.value === "prev") {
+    if (value === "prev") {
       nextSlideValue--;
-      if (nextSlideValue < 0) nextSlideValue = 5;
+      if (nextSlideValue < 0) nextSlideValue = categories.length - 1;
     }
-
     setCurrentSlide(nextSlideValue);
-    setUrl(categories[currentSlide].url);
-    setImage(categories[currentSlide].img);
-    setCategory(categories[currentSlide].name);
+    setUrl(categories[nextSlideValue].url);
+    setImage(categories[nextSlideValue].img);
+    setCategory(categories[nextSlideValue].name);
     setDetails();
   }
 
