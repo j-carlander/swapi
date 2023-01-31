@@ -8,12 +8,12 @@ import { Subtitle } from "../Subtitle/subtitle";
 import { ResultList } from "../resultList/resultList";
 import { FlexContainer } from "../FlexContainer/flexContainer";
 import { fetchAPI } from "../FetchData/fetchData";
-import vehicles from "../../img/vehicles.png";
-import people from "../../img/person.png";
-import films from "../../img/movies.png";
-import planet from "../../img/planet.png";
-import species from "../../img/spicies.png";
-import starships from "../../img/starship.png";
+import vehicles from "../../img/vehicles2.png";
+import people from "../../img/person2.png";
+import films from "../../img/movies2.png";
+import planet from "../../img/planet2.png";
+import species from "../../img/species2.png";
+import starships from "../../img/starship2.png";
 // async function fetchAPI(url) {
 //   let result = await fetch(url);
 //   // console.log(result);
@@ -39,17 +39,47 @@ function App() {
   const [categoryUrl, setUrl] = useState(categories[0].url);
   const [categoryResultList, setResultList] = useState();
   const [pageNumber, setPageNumber] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const [nextSlide, setNextSlide] = useState(2);
   const [detailsUrl, setDetailsUrl] = useState(
     "https://swapi.dev/api/people/1"
   );
   const [details, setDetails] = useState();
 
-  function onCategoryClick(e) {
-    console.log(e.target.closest("[data-url]"));
-    let el = e.target.closest("[data-url]");
-    setUrl(el.dataset.url);
-    setCategory(el.dataset.name);
-    setPageNumber(1);
+  // function onCategoryClick(e) {
+  //   console.log(e.target.closest("[data-url]"));
+  //   let el = e.target.closest("[data-url]");
+  //   setUrl(el.dataset.url);
+  //   setCategory(el.dataset.name);
+  //   setPageNumber(1);
+  // }
+
+  function onCategorySlide(e) {
+    let el = e.target;
+
+    console.log(el.dataset.value);
+    console.log(el.dataset);
+    console.log(`currentslide =` + currentSlide)
+    console.log(`nextslide =` + nextSlide)
+
+    if(el.dataset.value === "next") {
+      setCurrentSlide(currentSlide + 1);
+      setNextSlide(nextSlide + 1);
+      setUrl(categories[currentSlide].url);
+      setCategory(categories[currentSlide].name);
+      setPageNumber(1);
+      console.log(`if next = ${currentSlide}`);
+      console.log(`if next = ${nextSlide}`);
+    }
+    if(el.dataset.value === "prev") {
+      setCurrentSlide(currentSlide - 1);
+      setNextSlide(nextSlide - 1);
+      setUrl(categories[currentSlide].url);
+      setCategory(categories[currentSlide].name);
+      setPageNumber(1);
+      console.log(`if prev = ${currentSlide}`);
+      console.log(`if prev = ${nextSlide}`);
+    }
   }
 
   function onChangePage(e) {
@@ -75,7 +105,11 @@ function App() {
   return (
     <div>
       <BannerImg />
-      <CarouselMenu categories={categories} onClick={onCategoryClick} />
+      <CarouselMenu 
+        categories={categories} 
+        // onClick={onCategoryClick}
+        onCategorySlideBtn={onCategorySlide}
+        />
       <FlexContainer>
         <Container>
           <Subtitle title={chosenCategory} />

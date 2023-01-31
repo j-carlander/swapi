@@ -12,7 +12,7 @@ export function ResultList(props) {
 
   let resultList = props.result[3][1];
   resultList.map((item) => console.log(item.name ? item.name : item.title));
-  console.log(props.result[3][1]);
+
   return (
     <div>
       <div className="flex-column">
