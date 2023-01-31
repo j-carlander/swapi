@@ -25,7 +25,7 @@ const planetDetails = [
   "orbital_period",
   "rotation_period",
 ];
-const spiciesDetails = [
+const speciesDetails = [
   "classification",
   "designation",
   "average_height",
@@ -50,13 +50,10 @@ const vehicleDetails = [
 const starshipDetails = [
   "model",
   "manufacturer",
-  "cost_in_credits",
   "length",
-  "max_atmosphering_speed",
   "crew",
   "passengers",
   "cargo_capacity",
-  "consumables",
   "hyperdrive_rating",
   "MGLT",
   "starship_class",
@@ -67,34 +64,54 @@ export function Details(props) {
     return <div></div>;
   }
   function formatText(string) {
-    string = string.charAt(0).toUpperCase() + string.strce(1);
+    string = string.charAt(0).toUpperCase() + string.slice(1);
     string = string.replaceAll("_", " ");
     return string;
   }
 
-  if (props.category == "Starships") {
-    return (
-      <div>
-        <table>
-          <thead><tr><th colSpan={2} className="table-title"><h3>{props.details.name}</h3></th></tr></thead>
-          <tbody>
-          <tr><th>Model:</th><td>{props.details.model}</td></tr>
-          <tr><th>Manufacturer:</th><td>{props.details.manufacturer}</td></tr>
-          <tr><th>Length:</th><td>{props.details.length}m</td></tr>
-          <tr><th>Crew:</th><td>{props.details.crew}</td></tr>
-          <tr><th>Passengers:</th><td>{props.details.passengers}</td></tr>
-          <tr><th>Cargo capacity:</th><td>{props.details.cargo_capacity}kg</td></tr>
-          <tr><th>Hyperdrive rating:</th><td>{props.details.hyperdrive_rating}</td></tr>
-          <tr>
-            <th>Megatrghts/h:</th><td>{props.details.MGLT} MGLT (1 MGLT ~ 0.0755
-            trghtyears/h)
-            </td></tr>
-          <tr><th>Starship class:</th><td>{props.details.starship_class}</td></tr>
-          </tbody>
-        </table>
-      </div>
-    );
+  let categoryDetails = [];
+  if (props.category == "People") {
+    categoryDetails = peopleDetails;
   }
+  if (props.category == "Planets") {
+    categoryDetails = planetDetails;
+  }
+  if (props.category == "Films") {
+    categoryDetails = filmDetails;
+  }
+  if (props.category == "Species") {
+    categoryDetails = speciesDetails;
+  }
+  if (props.category == "Vehicles") {
+    categoryDetails = vehicleDetails;
+  }
+  if (props.category == "Starships") {
+    categoryDetails = starshipDetails;
+  }
+  return (
+    <div>
+      <table>
+        <thead><tr><th colSpan={2} className="table-title"><h3>{props.details.name}</h3></th></tr></thead>
+        <tbody>
+          {categoryDetails.map(detail => {
+            return <tr><th>{formatText(detail)}:</th><td>{props.details[detail]}</td></tr>
+          })}
+        {/* <tr><th>Model:</th><td>{props.details.model}</td></tr>
+        <tr><th>Manufacturer:</th><td>{props.details.manufacturer}</td></tr>
+        <tr><th>Length:</th><td>{props.details.length}m</td></tr>
+        <tr><th>Crew:</th><td>{props.details.crew}</td></tr>
+        <tr><th>Passengers:</th><td>{props.details.passengers}</td></tr>
+        <tr><th>Cargo capacity:</th><td>{props.details.cargo_capacity}kg</td></tr>
+        <tr><th>Hyperdrive rating:</th><td>{props.details.hyperdrive_rating}</td></tr>
+        <tr>
+          <th>Megatrghts/h:</th><td>{props.details.MGLT} MGLT (1 MGLT ~ 0.0755
+          trghtyears/h)
+          </td></tr>
+        <tr><th>Starship class:</th><td>{props.details.starship_class}</td></tr> */}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 // <tr>Hair color: Blonde</tr>
