@@ -63,8 +63,8 @@ function App() {
     console.log(`currentslide =` + currentSlide)
 
     if(el.dataset.value === "next") {
-      setCurrentSlide(currentSlide + 1);
-      if(currentSlide < 5) {
+      if(currentSlide !== 5) {
+        setCurrentSlide(currentSlide + 1);
         setImage(categories[currentSlide].img);
         setName(categories[currentSlide].name);
         setCategory(categories[currentSlide].name);

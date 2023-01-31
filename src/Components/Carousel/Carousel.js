@@ -1,12 +1,12 @@
 import React from "react";
 import "./Carousel.css";
 
+
 function Carousel({ categories, onCategorySlideBtn, img, name }) {
 
   return (
     <div className="carousel">
       <div>
-       
         <button 
           className="left-carousel-btn"
           data-url={categories.url}
@@ -19,7 +19,6 @@ function Carousel({ categories, onCategorySlideBtn, img, name }) {
           <img src={img} alt="" />
           <figcaption>{name}</figcaption>
         </figure>
-        
       </div>
       <div>
         <button 
