@@ -70,22 +70,22 @@ export function Details(props) {
   }
 
   let categoryDetails = [];
-  if (props.category == "People") {
+  if (props.category === "People") {
     categoryDetails = peopleDetails;
   }
-  if (props.category == "Planets") {
+  if (props.category === "Planets") {
     categoryDetails = planetDetails;
   }
-  if (props.category == "Films") {
+  if (props.category === "Films") {
     categoryDetails = filmDetails;
   }
-  if (props.category == "Species") {
+  if (props.category === "Species") {
     categoryDetails = speciesDetails;
   }
-  if (props.category == "Vehicles") {
+  if (props.category === "Vehicles") {
     categoryDetails = vehicleDetails;
   }
-  if (props.category == "Starships") {
+  if (props.category === "Starships") {
     categoryDetails = starshipDetails;
   }
   return (

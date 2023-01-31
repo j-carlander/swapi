@@ -7,8 +7,8 @@
   display: flex;
   gap: 1em;
   color: white;
+  font-size: 0.8rem;
 }
-
 .carousel {
   margin: auto auto;
   display: flex;
@@ -26,9 +26,23 @@
   transition: all 0.5s;
   overflow: hidden;
 }
+
 .slide img {
   width: 200%;
   margin-left: -1.5em;
+}
+
+.fig-fade-in {
+  animation: fadeIn 200ms ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .left-carousel-btn,
@@ -48,9 +62,9 @@ figcaption {
   color: white;
 }
 
-.slide-out-left {
+/* .slide-out-left {
   animation: slideOutLeft 250ms forwards;
-}
+} */
 
 @keyframes slideOutLeft {
   from {
@@ -61,28 +75,11 @@ figcaption {
   }
 }
 
-.slide-out-right {
-  animation: slideOutRight 250ms forwards;
-}
-
 @keyframes slideOutRight {
   from {
     transform: translateX(0);
   }
   to {
     transform: translateX(500px);
-  }
-}
-
-.fade-figure {
-  animation: fadeIn 250ms ease-in 200ms forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }

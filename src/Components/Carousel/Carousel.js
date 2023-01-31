@@ -3,17 +3,25 @@ import React, { useRef } from "react";
 import "./Carousel.css";
 
 
-function Carousel({ categories, onCategorySlideBtn, img, name }) {
+function Carousel({ categories, onCategorySlideBtn, img }) {
+
+  const figRef = useRef(null);
+
   function handleSlide(e) {
+
     let el = e.target;
     let value = el.dataset.value;
 
+
     if (value === "next") {
+      figRef.current.style.cssText = 'animation: slideOutLeft 500ms backwards';
     }
     if (value === "prev") {
+      figRef.current.style.cssText = 'animation: slideOutRight 500ms backwards';
     }
 
-    onCategorySlideBtn(value);
+      setTimeout(() => {onCategorySlideBtn(value);}, '100');
+    
   }
 
   return (
@@ -28,9 +36,8 @@ function Carousel({ categories, onCategorySlideBtn, img, name }) {
         </button>
 
         <div className="slide">
-          <figure>
+          <figure className="fig-fade-in" ref={figRef}>
             <img src={img} alt="" />
-            {/* <figcaption>{name}</figcaption> */}
           </figure>
         </div>
 
@@ -43,12 +50,12 @@ function Carousel({ categories, onCategorySlideBtn, img, name }) {
         </button>
       </div>
       <div className="flex-row">
-        <p>Pep</p>
-        <p>pla</p>
-        <p>veh</p>
-        <p>fil</p>
-        <p>sta</p>
-        <p>spe</p>
+        <p>People</p>
+        <p>Planets</p>
+        <p>Films</p>
+        <p>Species</p>
+        <p>Vehicles</p>
+        <p>Starships</p>
       </div>
     </div>
   );

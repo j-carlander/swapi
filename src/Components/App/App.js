@@ -39,7 +39,6 @@ function App() {
   const [chosenCategory, setCategory] = useState(categories[currentSlide].name);
   const [categoryUrl, setUrl] = useState(categories[currentSlide].url);
   const [currentImage, setImage] = useState(categories[currentSlide].img);
-  const [currentName, setName] = useState(categories[currentSlide].name);
   const [categoryResultList, setResultList] = useState();
   const [pageNumber, setPageNumber] = useState(1);
   // const [detailsUrl, setDetailsUrl] = useState(
