@@ -24,11 +24,6 @@
   border: none;
 }
 
-.left-resultList-btn:hover,
-.right-resultList-btn:hover {
-  color: #bafdffd7;
-}
-
 .disabled {
   pointer-events: none;
   color: #89b9bbd7;
