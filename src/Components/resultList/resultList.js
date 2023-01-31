@@ -23,6 +23,7 @@ export function ResultList(props) {
               name={item.name ? item.name : item.title}
               url={item.url}
               onShowDetailsBtn={props.onShowDetailsBtn}
+              details={item}
             />
           );
         })}
