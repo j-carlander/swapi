@@ -5,18 +5,22 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 425px;
-  height: 350px;
+  max-width: 250px;
+  height: 200px;
   position: relative;
-  /* overflow: hidden; */
 }
 .slide {
   border: 1px solid green;
   display: flex;
   text-align: center;
   width: 100%;
-  max-width: 300px;
+  max-width: 130px;
   transition: all 0.5s;
+  overflow: hidden;
+}
+.slide img {
+  width: 200%;
+  margin-left: -1.5em;
 }
 .left-carousel-btn,
 .right-carousel-btn {
