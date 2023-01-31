@@ -43,9 +43,9 @@ function App() {
   const [currentName, setName] = useState(categories[currentSlide].name);
   const [categoryResultList, setResultList] = useState();
   const [pageNumber, setPageNumber] = useState(1);
-  const [detailsUrl, setDetailsUrl] = useState(
-    "https://swapi.dev/api/people/1"
-  );
+  // const [detailsUrl, setDetailsUrl] = useState(
+  //   "https://swapi.dev/api/people/1"
+  // );
   const [details, setDetails] = useState();
 
   // function onCategoryClick(e) {
@@ -96,17 +96,17 @@ function App() {
     setUrl(el.dataset.url);
   }
 
-  function onShowDetails(e) {
-    setDetailsUrl(e.target.dataset.url);
+  function onShowDetails(details) {
+    setDetails(details);
   }
 
   useEffect(() => {
     fetchAPI(categoryUrl, setResultList).catch(console.error);
   }, [categoryUrl]);
 
-  useEffect(() => {
-    fetchAPI(detailsUrl, setDetails).catch(console.error);
-  }, [detailsUrl]);
+  // useEffect(() => {
+  //   fetchAPI(detailsUrl, setDetails).catch(console.error);
+  // }, [detailsUrl]);
 
   return (
     <div>
