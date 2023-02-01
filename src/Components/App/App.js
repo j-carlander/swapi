@@ -22,25 +22,51 @@ import starships from "../../img/starship2.png";
 // console.log(fetchAPI("https://swapi.dev/api/people/"));
 
 function App() {
-const peopleRef = useRef(null);
-const planetsRef = useRef(null);
-const filmsRef = useRef(null);
-const speciesRef = useRef(null);
-const vehiclesRef = useRef(null);
-const starshipsRef = useRef(null);
+  const peopleRef = useRef(null);
+  const planetsRef = useRef(null);
+  const filmsRef = useRef(null);
+  const speciesRef = useRef(null);
+  const vehiclesRef = useRef(null);
+  const starshipsRef = useRef(null);
 
-const categories = [
-  { name: "People", img: people, url: "https://swapi.dev/api/people/", ref:peopleRef },
-  { name: "Planets", img: planet, url: "https://swapi.dev/api/planets/", ref:planetsRef },
-  { name: "Films", img: films, url: "https://swapi.dev/api/films/", ref:filmsRef },
-  { name: "Species", img: species, url: "https://swapi.dev/api/species/", ref:speciesRef },
-  { name: "Vehicles", img: vehicles, url: "https://swapi.dev/api/vehicles/", ref:vehiclesRef },
-  {
-    name: "Starships",
-    img: starships,
-    url: "https://swapi.dev/api/starships/", ref:starshipsRef
-  },
-];
+  const categories = [
+    {
+      name: "People",
+      img: people,
+      url: "https://swapi.dev/api/people/",
+      ref: peopleRef,
+    },
+    {
+      name: "Planets",
+      img: planet,
+      url: "https://swapi.dev/api/planets/",
+      ref: planetsRef,
+    },
+    {
+      name: "Films",
+      img: films,
+      url: "https://swapi.dev/api/films/",
+      ref: filmsRef,
+    },
+    {
+      name: "Species",
+      img: species,
+      url: "https://swapi.dev/api/species/",
+      ref: speciesRef,
+    },
+    {
+      name: "Vehicles",
+      img: vehicles,
+      url: "https://swapi.dev/api/vehicles/",
+      ref: vehiclesRef,
+    },
+    {
+      name: "Starships",
+      img: starships,
+      url: "https://swapi.dev/api/starships/",
+      ref: starshipsRef,
+    },
+  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [chosenCategory, setCategory] = useState(categories[currentIndex].name);
@@ -68,16 +94,18 @@ const categories = [
     setCategory(categories[nextIndex].name);
     setRef(categories[nextIndex].ref);
     setDetails();
+    setPageNumber(1);
   }
 
-function onCategoryClick(nextIndex) {
-  setCurrentIndex(nextIndex);
-  setUrl(categories[nextIndex].url);
-  setImage(categories[nextIndex].img);
-  setCategory(categories[nextIndex].name);
-  setRef(categories[nextIndex].ref);
-  setDetails();
-}
+  function onCategoryClick(nextIndex) {
+    setCurrentIndex(nextIndex);
+    setUrl(categories[nextIndex].url);
+    setImage(categories[nextIndex].img);
+    setCategory(categories[nextIndex].name);
+    setRef(categories[nextIndex].ref);
+    setDetails();
+    setPageNumber(1);
+  }
 
   function onChangePage(e) {
     let el = e.target;
