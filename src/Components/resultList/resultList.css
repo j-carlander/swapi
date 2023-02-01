@@ -1,0 +1,30 @@
+.flex-column {
+  padding-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.flex-space-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/* .left-resultList-btn {
+  scale: -1;
+} */
+.left-resultList-btn,
+.right-resultList-btn {
+  font-size: 4rem;
+  color: #bafdffd7;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.disabled {
+  pointer-events: none;
+  color: #89b9bbd7;
+}

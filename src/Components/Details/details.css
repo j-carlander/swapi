@@ -1,0 +1,16 @@
+th {
+    text-align: end;
+}
+
+.table-title {
+    text-align: center;
+    border-bottom: 2px solid white;
+}
+
+table {
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
