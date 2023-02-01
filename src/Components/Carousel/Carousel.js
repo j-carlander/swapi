@@ -14,13 +14,16 @@ function Carousel({ categories, onCategorySlideBtn, img }) {
 
 
     if (value === "next") {
-      figRef.current.style.cssText = 'animation: slideOutLeft 500ms backwards';
+      figRef.current.style.cssText = 'animation: slideOutLeft 500ms';
     }
     if (value === "prev") {
-      figRef.current.style.cssText = 'animation: slideOutRight 500ms backwards';
+      figRef.current.style.cssText = 'animation: slideOutRight 500ms';
     }
 
-      setTimeout(() => {onCategorySlideBtn(value);}, '100');
+      setTimeout(() => {
+        onCategorySlideBtn(value); 
+        figRef.current.style.cssText = 'animation: fadeIn 500ms';
+      }, '200');
     
   }
 

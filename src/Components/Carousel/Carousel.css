@@ -32,10 +32,6 @@
   margin-left: -1.5em;
 }
 
-.fig-fade-in {
-  animation: fadeIn 200ms ease-in forwards;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -62,16 +58,12 @@ figcaption {
   color: white;
 }
 
-/* .slide-out-left {
-  animation: slideOutLeft 250ms forwards;
-} */
-
 @keyframes slideOutLeft {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-500px);
+    transform: translateX(-130px);
   }
 }
 
@@ -80,6 +72,6 @@ figcaption {
     transform: translateX(0);
   }
   to {
-    transform: translateX(500px);
+    transform: translateX(130px);
   }
 }
