@@ -84,6 +84,7 @@ function App() {
       nextIndex--;
       if (nextIndex < 0) nextIndex = categories.length - 1;
     }
+    setResultList();
     setCurrentIndex(nextIndex);
     setUrl(categories[nextIndex].url);
     setImage(categories[nextIndex].img);
@@ -95,6 +96,7 @@ function App() {
   }
 
   function onCategoryClick(nextIndex) {
+    setResultList();
     setCurrentIndex(nextIndex);
     setUrl(categories[nextIndex].url);
     setImage(categories[nextIndex].img);
