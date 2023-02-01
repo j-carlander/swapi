@@ -8,18 +8,13 @@ import { Subtitle } from "../Subtitle/subtitle";
 import { ResultList } from "../resultList/resultList";
 import { FlexContainer } from "../FlexContainer/flexContainer";
 import { fetchAPI } from "../FetchData/fetchData";
+import { SearchField } from "../SearchField/SearchField";
 import vehicles from "../../img/vehicles2.png";
 import people from "../../img/person2.png";
 import films from "../../img/movies2.png";
 import planet from "../../img/planet2.png";
 import species from "../../img/species2.png";
 import starships from "../../img/starship2.png";
-// async function fetchAPI(url) {
-//   let result = await fetch(url);
-//   // console.log(result);
-//   return await result.json();
-// }
-// console.log(fetchAPI("https://swapi.dev/api/people/"));
 
 function App() {
   const peopleRef = useRef(null);
@@ -76,6 +71,7 @@ function App() {
   const [pageNumber, setPageNumber] = useState(1);
   const [currentRef, setRef] = useState(categories[currentIndex].ref);
   const [details, setDetails] = useState();
+  const [resetSearchField, setResetSearchField] = useState(true);
 
   function onCategorySlide(value) {
     let nextIndex = currentIndex;
@@ -95,6 +91,7 @@ function App() {
     setRef(categories[nextIndex].ref);
     setDetails();
     setPageNumber(1);
+    setResetSearchField(true);
   }
 
   function onCategoryClick(nextIndex) {
@@ -105,6 +102,7 @@ function App() {
     setRef(categories[nextIndex].ref);
     setDetails();
     setPageNumber(1);
+    setResetSearchField(true);
   }
 
   function onChangePage(e) {
@@ -117,6 +115,16 @@ function App() {
 
   function onShowDetails(details) {
     setDetails(details);
+  }
+
+  function onSearch(value) {
+    setResetSearchField(false);
+    let url = categoryUrl + "?search=" + value;
+    setUrl(url);
+  }
+  function onResetSearch() {
+    setResetSearchField(true);
+    setUrl(categories[currentIndex].url);
   }
 
   useEffect(() => {
@@ -139,9 +147,16 @@ function App() {
         onCategorySlideBtn={onCategorySlide}
         onCategoryClickBtn={onCategoryClick}
       />
+
       <FlexContainer>
         <Container>
           <Subtitle title={chosenCategory} />
+          <SearchField
+            chosenCategory={chosenCategory}
+            onSearch={onSearch}
+            onResetSearch={onResetSearch}
+            resetSearchField={resetSearchField}
+          />
           <ResultList
             result={categoryResultList}
             onChangePageBtn={onChangePage}

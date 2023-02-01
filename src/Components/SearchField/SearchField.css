@@ -1,0 +1,9 @@
+.search-field {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.lightsaber-btn {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
