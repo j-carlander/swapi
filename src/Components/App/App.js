@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import BannerImg from "../BannerImg/BannerImg";
 import CarouselMenu from "../Carousel/Carousel";
 import { Container } from "../Container/container";
@@ -21,38 +21,35 @@ import starships from "../../img/starship2.png";
 // }
 // console.log(fetchAPI("https://swapi.dev/api/people/"));
 
+function App() {
+const peopleRef = useRef(null);
+const planetsRef = useRef(null);
+const filmsRef = useRef(null);
+const speciesRef = useRef(null);
+const vehiclesRef = useRef(null);
+const starshipsRef = useRef(null);
+
 const categories = [
-  { name: "People", img: people, url: "https://swapi.dev/api/people/" },
-  { name: "Planets", img: planet, url: "https://swapi.dev/api/planets/" },
-  { name: "Films", img: films, url: "https://swapi.dev/api/films/" },
-  { name: "Species", img: species, url: "https://swapi.dev/api/species/" },
-  { name: "Vehicles", img: vehicles, url: "https://swapi.dev/api/vehicles/" },
+  { name: "People", img: people, url: "https://swapi.dev/api/people/", ref:peopleRef },
+  { name: "Planets", img: planet, url: "https://swapi.dev/api/planets/", ref:planetsRef },
+  { name: "Films", img: films, url: "https://swapi.dev/api/films/", ref:filmsRef },
+  { name: "Species", img: species, url: "https://swapi.dev/api/species/", ref:speciesRef },
+  { name: "Vehicles", img: vehicles, url: "https://swapi.dev/api/vehicles/", ref:vehiclesRef },
   {
     name: "Starships",
     img: starships,
-    url: "https://swapi.dev/api/starships/",
+    url: "https://swapi.dev/api/starships/", ref:starshipsRef
   },
 ];
 
-function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [chosenCategory, setCategory] = useState(categories[currentSlide].name);
   const [categoryUrl, setUrl] = useState(categories[currentSlide].url);
   const [currentImage, setImage] = useState(categories[currentSlide].img);
   const [categoryResultList, setResultList] = useState();
   const [pageNumber, setPageNumber] = useState(1);
-  // const [detailsUrl, setDetailsUrl] = useState(
-  //   "https://swapi.dev/api/people/1"
-  // );
+  const [currentRef, setRef] = useState(categories[currentSlide].ref);
   const [details, setDetails] = useState();
-
-  // function onCategoryClick(e) {
-  //   console.log(e.target.closest("[data-url]"));
-  //   let el = e.target.closest("[data-url]");
-  //   setUrl(el.dataset.url);
-  //   setCategory(el.dataset.name);
-  //   setPageNumber(1);
-  // }
 
   function onCategorySlide(value) {
     let nextSlideValue = currentSlide;
@@ -69,6 +66,7 @@ function App() {
     setUrl(categories[nextSlideValue].url);
     setImage(categories[nextSlideValue].img);
     setCategory(categories[nextSlideValue].name);
+    setRef(categories[nextSlideValue].ref);
     setDetails();
   }
 
@@ -99,7 +97,7 @@ function App() {
         categories={categories}
         name={chosenCategory}
         img={currentImage}
-        // onClick={onCategoryClick}
+        currentRef={currentRef}
         onCategorySlideBtn={onCategorySlide}
       />
       <FlexContainer>

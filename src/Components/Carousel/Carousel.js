@@ -1,9 +1,9 @@
 import { func } from "prop-types";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import "./Carousel.css";
 
 
-function Carousel({ categories, onCategorySlideBtn, img }) {
+function Carousel({ categories, onCategorySlideBtn, img, currentRef }) {
 
   const figRef = useRef(null);
 
@@ -24,8 +24,13 @@ function Carousel({ categories, onCategorySlideBtn, img }) {
         onCategorySlideBtn(value); 
         figRef.current.style.cssText = 'animation: fadeIn 500ms';
       }, '200');
-    
+      
   }
+  useEffect(() => {
+    categories.forEach(category => {
+      category.ref.current.style.cssText = category.ref === currentRef ? 'font-size: 1rem; color: #bafdffd7;' : "";
+    });
+  })
 
   return (
     <div className="flex-column">
@@ -53,12 +58,9 @@ function Carousel({ categories, onCategorySlideBtn, img }) {
         </button>
       </div>
       <div className="flex-row">
-        <p>People</p>
-        <p>Planets</p>
-        <p>Films</p>
-        <p>Species</p>
-        <p>Vehicles</p>
-        <p>Starships</p>
+        {categories.map(category => {
+          return <p ref={category.ref}>{category.name}</p>
+        })};
       </div>
     </div>
   );

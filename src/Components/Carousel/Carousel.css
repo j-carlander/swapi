@@ -6,7 +6,7 @@
 .flex-row {
   display: flex;
   gap: 1em;
-  color: white;
+  color: #89b9bbd7;
   font-size: 0.8rem;
 }
 .carousel {
