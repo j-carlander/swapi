@@ -11,7 +11,7 @@ export function ResultList(props) {
   let count = Math.ceil(props.result[0][1] / 10);
 
   let resultList = props.result[3][1];
-  resultList.map((item) => console.log(item.name ? item.name : item.title));
+
 
   return (
     <div>

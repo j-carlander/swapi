@@ -94,7 +94,7 @@ export function Details(props) {
         <thead><tr><th colSpan={2} className="table-title"><h3>{props.details.name}</h3></th></tr></thead>
         <tbody>
           {categoryDetails.map(detail => {
-            return <tr><th>{formatText(detail)}:</th><td>{props.details[detail]}</td></tr>
+            return <tr key={detail}><th>{formatText(detail)}:</th><td>{props.details[detail]}</td></tr>
           })}
         {/* <tr><th>Model:</th><td>{props.details.model}</td></tr>
         <tr><th>Manufacturer:</th><td>{props.details.manufacturer}</td></tr>

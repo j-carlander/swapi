@@ -1,9 +1,8 @@
-import { func } from "prop-types";
 import React, { useRef, useEffect } from "react";
 import "./Carousel.css";
 
 
-function Carousel({ categories, onCategorySlideBtn, img, currentRef }) {
+function Carousel({ categories, onCategorySlideBtn, img, currentRef, onCategoryClickBtn, currentIndex }) {
 
   const figRef = useRef(null);
 
@@ -26,6 +25,27 @@ function Carousel({ categories, onCategorySlideBtn, img, currentRef }) {
       }, '200');
       
   }
+
+  function handleCategoryClick(e) {
+
+    let el = e.target;
+    let index = el.dataset.index;
+
+
+    if (index > currentIndex) {
+      figRef.current.style.cssText = 'animation: slideOutLeft 500ms';
+    }
+    if (index < currentIndex) {
+      figRef.current.style.cssText = 'animation: slideOutRight 500ms';
+    }
+
+      setTimeout(() => {
+        onCategoryClickBtn(index); 
+        figRef.current.style.cssText = 'animation: fadeIn 500ms';
+      }, '200');
+      
+  }
+
   useEffect(() => {
     categories.forEach(category => {
       category.ref.current.style.cssText = category.ref === currentRef ? 'font-size: 1rem; color: #bafdffd7;' : "";
@@ -59,7 +79,7 @@ function Carousel({ categories, onCategorySlideBtn, img, currentRef }) {
       </div>
       <div className="flex-row">
         {categories.map(category => {
-          return <p ref={category.ref}>{category.name}</p>
+          return <p key={categories.indexOf(category)} ref={category.ref} onClick={handleCategoryClick} data-index={categories.indexOf(category)}>{category.name}</p>
         })};
       </div>
     </div>

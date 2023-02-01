@@ -3,7 +3,6 @@ import "./resultItem.css";
 
 export function ResultItem(props) {
   function handleClick() {
-    console.log(props.details);
     props.onShowDetailsBtn(props.details);
   }
 

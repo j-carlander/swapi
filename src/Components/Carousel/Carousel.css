@@ -9,6 +9,12 @@
   color: #89b9bbd7;
   font-size: 0.8rem;
 }
+
+.flex-row p:hover {
+  cursor: pointer;
+  color: #bafdffd7;
+}
+
 .carousel {
   margin: auto auto;
   display: flex;

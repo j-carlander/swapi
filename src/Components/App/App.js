@@ -42,33 +42,42 @@ const categories = [
   },
 ];
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [chosenCategory, setCategory] = useState(categories[currentSlide].name);
-  const [categoryUrl, setUrl] = useState(categories[currentSlide].url);
-  const [currentImage, setImage] = useState(categories[currentSlide].img);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [chosenCategory, setCategory] = useState(categories[currentIndex].name);
+  const [categoryUrl, setUrl] = useState(categories[currentIndex].url);
+  const [currentImage, setImage] = useState(categories[currentIndex].img);
   const [categoryResultList, setResultList] = useState();
   const [pageNumber, setPageNumber] = useState(1);
-  const [currentRef, setRef] = useState(categories[currentSlide].ref);
+  const [currentRef, setRef] = useState(categories[currentIndex].ref);
   const [details, setDetails] = useState();
 
   function onCategorySlide(value) {
-    let nextSlideValue = currentSlide;
+    let nextIndex = currentIndex;
 
     if (value === "next") {
-      nextSlideValue++;
-      if (nextSlideValue > 5) nextSlideValue = 0;
+      nextIndex++;
+      if (nextIndex > 5) nextIndex = 0;
     }
     if (value === "prev") {
-      nextSlideValue--;
-      if (nextSlideValue < 0) nextSlideValue = categories.length - 1;
+      nextIndex--;
+      if (nextIndex < 0) nextIndex = categories.length - 1;
     }
-    setCurrentSlide(nextSlideValue);
-    setUrl(categories[nextSlideValue].url);
-    setImage(categories[nextSlideValue].img);
-    setCategory(categories[nextSlideValue].name);
-    setRef(categories[nextSlideValue].ref);
+    setCurrentIndex(nextIndex);
+    setUrl(categories[nextIndex].url);
+    setImage(categories[nextIndex].img);
+    setCategory(categories[nextIndex].name);
+    setRef(categories[nextIndex].ref);
     setDetails();
   }
+
+function onCategoryClick(nextIndex) {
+  setCurrentIndex(nextIndex);
+  setUrl(categories[nextIndex].url);
+  setImage(categories[nextIndex].img);
+  setCategory(categories[nextIndex].name);
+  setRef(categories[nextIndex].ref);
+  setDetails();
+}
 
   function onChangePage(e) {
     let el = e.target;
@@ -98,7 +107,9 @@ const categories = [
         name={chosenCategory}
         img={currentImage}
         currentRef={currentRef}
+        currentIndex={currentIndex}
         onCategorySlideBtn={onCategorySlide}
+        onCategoryClickBtn={onCategoryClick}
       />
       <FlexContainer>
         <Container>
