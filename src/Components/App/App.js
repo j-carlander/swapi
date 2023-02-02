@@ -73,29 +73,21 @@ function App() {
   const [details, setDetails] = useState();
   const [resetSearchField, setResetSearchField] = useState(true);
 
-  function onCategorySlide(value) {
+  function onCategoryChange(value) {
     let nextIndex = currentIndex;
 
     if (value === "next") {
       nextIndex++;
-      if (nextIndex > 5) nextIndex = 0;
+      if (nextIndex >= categories.length) nextIndex = 0;
     }
     if (value === "prev") {
       nextIndex--;
       if (nextIndex < 0) nextIndex = categories.length - 1;
     }
-    setResultList();
-    setCurrentIndex(nextIndex);
-    setUrl(categories[nextIndex].url);
-    setImage(categories[nextIndex].img);
-    setCategory(categories[nextIndex].name);
-    setRef(categories[nextIndex].ref);
-    setDetails();
-    setPageNumber(1);
-    setResetSearchField(true);
-  }
+    if (value >= 0 && value < categories.length) {
+      nextIndex = value;
+    }
 
-  function onCategoryClick(nextIndex) {
     setResultList();
     setCurrentIndex(nextIndex);
     setUrl(categories[nextIndex].url);
@@ -133,10 +125,6 @@ function App() {
     fetchAPI(categoryUrl, setResultList).catch(console.error);
   }, [categoryUrl]);
 
-  // useEffect(() => {
-  //   fetchAPI(detailsUrl, setDetails).catch(console.error);
-  // }, [detailsUrl]);
-
   return (
     <div>
       <BannerImg />
@@ -146,8 +134,8 @@ function App() {
         img={currentImage}
         currentRef={currentRef}
         currentIndex={currentIndex}
-        onCategorySlideBtn={onCategorySlide}
-        onCategoryClickBtn={onCategoryClick}
+        onCategoryChange={onCategoryChange}
+        // onCategoryClickBtn={onCategoryChange}
       />
 
       <FlexContainer>
