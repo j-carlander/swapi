@@ -1,16 +1,48 @@
 th {
-    text-align: end;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: rgba(19, 19, 19, 0.568);
+  background: black;
+  background-clip: text;
+  text-shadow: 2px 2px 2px rgb(255, 255, 255);
 }
 
 .table-title {
-    text-align: center;
-    border-bottom: 2px solid white;
+  text-align: center;
+  /* border-bottom: 2px solid white; */
 }
 
 table {
-    width: 100%;
+  text-align: start;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: rgba(19, 19, 19, 0.568);
+  background: black;
+  background-clip: text;
+  text-shadow: 2px 2px 2px rgb(255, 255, 255);
 }
 
 tr:nth-child(even) {
-    background-color: white;
+  background: conic-gradient(
+    #e6e9bf,
+    #d2b5aa,
+    #cbaea3,
+    #d4b5ab,
+    #e6e9bf,
+    #d2b5aa,
+    #cbaea3,
+    #d4b5ab,
+    #e6e9bf,
+    #d2b5aa,
+    #cbaea3,
+    #d4b5ab,
+    #e6e9bf,
+    #d2b5aa,
+    #cbaea3,
+    #d4b5ab
+  );
 }
