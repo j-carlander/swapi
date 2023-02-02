@@ -4,6 +4,7 @@ import "./resultList.css";
 import lightsaberCross from "../../img/loadingSabersGIF.gif";
 
 export function ResultList(props) {
+  // if the resultlist is empty show loading screen
   if (!props.result)
     return (
       <div className="loading-screen">
@@ -13,12 +14,15 @@ export function ResultList(props) {
       </div>
     );
 
-  let nextPage = props.result[1][1];
-  let prevPage = props.result[2][1];
+  // variables for the next and previous page links from the fetchData result
+  let nextPage = props.result.next;
+  let prevPage = props.result.previous;
 
-  let count = Math.ceil(props.result[0][1] / 10);
+  // calculate the total number of pages from the count value of the fetchData result
+  let count = Math.ceil(props.result.count / 10);
 
-  let resultList = props.result[3][1];
+  // the list of results from the fetchData result
+  let resultList = props.result.results;
 
   return (
     <div>

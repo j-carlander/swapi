@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export async function fetchAPI(url, setState) {
+export async function fetchData(url, setState) {
   let result = await axios.get(url);
-  let data = result.data;
-  let dataReturn = Object.entries(data);
 
-  setState(dataReturn);
+  let data = result.data;
+
+  setState(data);
 }
