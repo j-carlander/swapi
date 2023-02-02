@@ -1,12 +1,12 @@
 import React from "react";
 import { ResultItem } from "../ResultItem/resultItem";
 import "./resultList.css";
-import lightsaberCross from "../../img/bigLightsaberBtn.png";
+import lightsaberCross from "../../img/loadingSabersGIF.gif";
 
 export function ResultList(props) {
   if (!props.result)
     return (
-      <div>
+      <div className="loading-screen">
         <img src={lightsaberCross} alt="" width={200} />
         <br />
         Loading...
