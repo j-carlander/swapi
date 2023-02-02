@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/swapi/static/css/main.79c009e7.css",
+    "main.js": "/swapi/static/js/main.a6d20a5b.js",
+    "static/media/swapi-background2.png": "/swapi/static/media/swapi-background2.595ed46697c4dd49ea0c.png",
+    "static/media/space_background_large.jpg": "/swapi/static/media/space_background_large.0217e733057aec686b1c.jpg",
+    "static/media/species2.png": "/swapi/static/media/species2.48d3019bed4471939b59.png",
+    "static/media/loadingSabersGIF.gif": "/swapi/static/media/loadingSabersGIF.01716ef93d2fab495c50.gif",
+    "static/media/planet2.png": "/swapi/static/media/planet2.138857f056f27d636aa4.png",
+    "static/media/vehicles2.png": "/swapi/static/media/vehicles2.d0ca107afff9d572862c.png",
+    "static/media/person2.png": "/swapi/static/media/person2.7b3df7a294a9c347ab79.png",
+    "static/media/movies2.png": "/swapi/static/media/movies2.e64af4ce7bf7a08d09c0.png",
+    "static/media/starship2.png": "/swapi/static/media/starship2.eb1714e7fe1a0dec1151.png",
+    "index.html": "/swapi/index.html",
+    "main.79c009e7.css.map": "/swapi/static/css/main.79c009e7.css.map",
+    "main.a6d20a5b.js.map": "/swapi/static/js/main.a6d20a5b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.79c009e7.css",
+    "static/js/main.a6d20a5b.js"
+  ]
+}
