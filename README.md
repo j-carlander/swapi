@@ -1,10 +1,26 @@
-# Getting Started with Create React App
+# Super SWAPI Webster interface 1.0
+
+The purpose of this assignment is to give students an opportunity to demonstrate that they have the ability to independently implement an API query solution using a javascript framework (or similar library).
+
+## Task
+
+SWAPI dev (https://swapi.dev/) is an open API that allows one to retrieve information about entities from the star wars franchise with GET requests. In this task, you will implement a web interface solution where you can navigate the information for these entities.
+
+Create an interface where the user can choose from the 6 categories available under the SWAPI api. These are visible under the address https://swapi.dev/api/
+
+=====
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Installs all dependencies after you have cloned or downloaded the files from the repo
 
 ### `npm start`
 

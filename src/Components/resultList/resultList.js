@@ -1,9 +1,17 @@
 import React from "react";
 import { ResultItem } from "../ResultItem/resultItem";
 import "./resultList.css";
+import lightsaberCross from "../../img/loadingSabersGIF.gif";
 
 export function ResultList(props) {
-  if (!props.result) return <div>Loading...</div>;
+  if (!props.result)
+    return (
+      <div className="loading-screen">
+        <img src={lightsaberCross} alt="" width={200} />
+        <br />
+        Loading...
+      </div>
+    );
 
   let nextPage = props.result[1][1];
   let prevPage = props.result[2][1];
@@ -11,7 +19,6 @@ export function ResultList(props) {
   let count = Math.ceil(props.result[0][1] / 10);
 
   let resultList = props.result[3][1];
-
 
   return (
     <div>
