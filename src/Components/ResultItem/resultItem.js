@@ -7,7 +7,7 @@ export function ResultItem(props) {
   }
 
   return (
-    <button className="result-btn" onClick={handleClick} data-url={props.url}>
+    <button className="result-btn" onClick={handleClick}>
       {props.name}
     </button>
   );

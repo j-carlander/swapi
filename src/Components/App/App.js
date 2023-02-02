@@ -1,14 +1,16 @@
 import "./App.css";
 import React, { useState, useEffect, useRef } from "react";
+// Imports of components
 import BannerImg from "../BannerImg/BannerImg";
-import CarouselMenu from "../Carousel/Carousel";
+import CarouselMenu from "../CarouselMenu/CarouselMenu";
 import { Container } from "../Container/container";
 import { Details } from "../Details/details";
 import { Subtitle } from "../Subtitle/subtitle";
 import { ResultList } from "../resultList/resultList";
 import { FlexContainer } from "../FlexContainer/flexContainer";
-import { fetchAPI } from "../FetchData/fetchData";
+import { fetchData } from "../FetchData/fetchData";
 import { SearchField } from "../SearchField/SearchField";
+// imports of images
 import vehicles from "../../img/vehicles2.png";
 import people from "../../img/person2.png";
 import films from "../../img/movies2.png";
@@ -17,6 +19,7 @@ import species from "../../img/species2.png";
 import starships from "../../img/starship2.png";
 
 function App() {
+  // creating references for each category for later use in the menu.
   const peopleRef = useRef(null);
   const planetsRef = useRef(null);
   const filmsRef = useRef(null);
@@ -63,6 +66,7 @@ function App() {
     },
   ];
 
+  // defining states
   const [currentIndex, setCurrentIndex] = useState(0);
   const [chosenCategory, setCategory] = useState(categories[currentIndex].name);
   const [categoryUrl, setUrl] = useState(categories[currentIndex].url);
@@ -73,6 +77,7 @@ function App() {
   const [details, setDetails] = useState();
   const [resetSearchField, setResetSearchField] = useState(true);
 
+  // handling the different ways you can change category in the manu. Clicking the carousels next or prev buttons or a category name
   function onCategoryChange(value) {
     let nextIndex = currentIndex;
 
@@ -88,6 +93,7 @@ function App() {
       nextIndex = value;
     }
 
+    // update state to reflect the new category
     setResultList();
     setCurrentIndex(nextIndex);
     setUrl(categories[nextIndex].url);
@@ -99,30 +105,37 @@ function App() {
     setResetSearchField(true);
   }
 
+  // Handle changing page in the result list
   function onChangePage(e) {
-    let el = e.target;
-    if (el.dataset.value === "next") setPageNumber(pageNumber + 1);
-    if (el.dataset.value === "prev") setPageNumber(pageNumber - 1);
+    // switching current page number in the result list by checking the [data-value] attribute
+    if (e.target.dataset.value === "next") setPageNumber(pageNumber + 1);
+    if (e.target.dataset.value === "prev") setPageNumber(pageNumber - 1);
 
-    setUrl(el.dataset.url);
+    // setting the state of the url to the link for the next or previous result page.
+    setUrl(e.target.dataset.url);
   }
 
+  // set details state to be the details from the result list item button pressed
   function onShowDetails(details) {
     setDetails(details);
   }
 
+  // set state of the categoryurl to include the search parameter and entered value
   function onSearch(value) {
     setResetSearchField(false);
     let url = categoryUrl + "?search=" + value;
     setUrl(url);
   }
+
+  // resetting state of the categoryUrl to the url of the current category
   function onResetSearch() {
     setResetSearchField(true);
     setUrl(categories[currentIndex].url);
   }
 
+  // reruns the fetchData every time the state of the categoryUrl changes and saves the result to the resultList state.
   useEffect(() => {
-    fetchAPI(categoryUrl, setResultList).catch(console.error);
+    fetchData(categoryUrl, setResultList).catch(console.error);
   }, [categoryUrl]);
 
   return (
@@ -130,14 +143,11 @@ function App() {
       <BannerImg />
       <CarouselMenu
         categories={categories}
-        name={chosenCategory}
         img={currentImage}
         currentRef={currentRef}
         currentIndex={currentIndex}
         onCategoryChange={onCategoryChange}
-        // onCategoryClickBtn={onCategoryChange}
       />
-
       <FlexContainer>
         <Container>
           <Subtitle title={chosenCategory} />

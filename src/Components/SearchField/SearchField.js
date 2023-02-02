@@ -12,6 +12,7 @@ export function SearchField({
 
   let placeholderText = `Search ${chosenCategory}...`;
 
+  // set the input field value to empty if search has been reset
   useEffect(() => {
     if (resetSearchField) {
       inputRef.current.value = "";
