@@ -83,7 +83,7 @@
   width: 85%;
   bottom: 0;
   z-index: 5;
-  animation: disappear 1ms linear 820ms forwards;
+  animation: disappear 1ms linear 760ms forwards;
 }
 .printing-gif {
   margin-left: 1.2em;
