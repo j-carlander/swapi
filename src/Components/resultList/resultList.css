@@ -45,7 +45,7 @@
 .resultList-container {
   position: relative;
 }
-.parent-container {
+.printing-container {
   position: absolute;
   content: "";
   inset: 0;
@@ -68,7 +68,7 @@
     #cccccc,
     #c6c6c6
   );
-  animation: slideDown 5000ms steps(50) 0ms forwards;
+  animation: slideDown 4000ms steps(10) 1000ms forwards;
 }
 @keyframes slideDown {
   to {
@@ -83,7 +83,7 @@
   width: 85%;
   bottom: 0;
   z-index: 5;
-  animation: disappear 1ms linear 890ms forwards;
+  animation: disappear 1ms linear 820ms forwards;
 }
 .printing-gif {
   margin-left: 1.2em;
@@ -112,17 +112,6 @@
   }
   to {
     opacity: 1;
-  }
-}
-
-@keyframes shorten {
-  from {
-    opacity: 1;
-    /* bottom: 0%; */
-  }
-  to {
-    opacity: 1;
-    bottom: 0%;
   }
 }
 

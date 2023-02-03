@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React from "react";
 import { ResultItem } from "../ResultItem/resultItem";
 import "./resultList.css";
 import lightsaberCross from "../../img/loadingSabersGIF.gif";
@@ -7,8 +7,6 @@ import printingGIF from "../../img/printingTransparentGIF.gif"
 
 
 export function ResultList(props) {
-
-  const imgRef = useRef(null);
 
   // if the resultlist is empty show loading screen
   if (!props.result)
@@ -30,11 +28,6 @@ export function ResultList(props) {
 
   // the list of results from the fetchData result
   let resultList = props.result.results;
-  
-
-  setTimeout(() => {
-    imgRef.current.style.cssText = "animation: shorten 5000ms steps(80) forwards"
-  }, "1000");
 
   return (
     <div className="resultList-container">
@@ -51,11 +44,9 @@ export function ResultList(props) {
           );
         })}
       </div>
-      <div className="parent-container">
-        <div className="printing-container">
+      <div className="printing-container">
           <img className="laser_printer-gif" src={laserPrinterGIF} alt="gif of laser" />
-          <img ref={imgRef} className="printing-gif" src={printingGIF} alt="gif of laser"/>
-        </div>
+          <img className="printing-gif" src={printingGIF} alt="gif of laser"/>
       </div>
       <div className="flex-space-around">
         <button
