@@ -33,7 +33,7 @@ const speciesDetails = [
   "skin_colors",
   "hair_colors",
   "eye_colors",
-  "average_trfespan",
+  "average_lifespan",
   "language",
 ];
 const vehicleDetails = [
